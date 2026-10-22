@@ -2,48 +2,52 @@ import { useEffect, useState } from 'react'
 
 const launchDate = new Date('2027-01-23T00:00:00+05:30').getTime()
 
-function ShairoLogo({ large = false }) {
-  return <div className={large ? 'logo-lockup logo-large' : 'logo-lockup'}>
-    <svg className="logo-symbol" viewBox="0 0 220 220" aria-hidden="true">
-      <path d="M176 13 79 65C48 82 47 111 80 130l69 39c19 11 19 27-1 39l-92 51v-59c0-21 9-36 28-47l11-6-17-9C43 120 40 82 79 60l97-47Z" transform="translate(0 -25)" fill="currentColor" />
+function ShairoMark() {
+  return (
+    <svg className="shairo-mark" viewBox="0 0 180 220" role="img" aria-label="Shairo logo mark">
+      <path d="M148 8 66 52C38 67 39 91 68 108l55 32c17 10 16 24-1 34l-77 43v-50c0-18 7-30 24-40l9-5-14-8C40 102 37 70 66 54l82-46Z" fill="currentColor" />
     </svg>
-    <span>Shairo</span>
-  </div>
+  )
 }
 
 function Countdown() {
-  const [left, setLeft] = useState(() => Math.max(0, launchDate - Date.now()))
+  const [remaining, setRemaining] = useState(() => Math.max(0, launchDate - Date.now()))
+
   useEffect(() => {
-    const timer = window.setInterval(() => setLeft(Math.max(0, launchDate - Date.now())), 1000)
+    const timer = window.setInterval(() => {
+      setRemaining(Math.max(0, launchDate - Date.now()))
+    }, 1000)
     return () => window.clearInterval(timer)
   }, [])
+
   const units = [
-    [Math.floor(left / 86400000), 'DAYS'],
-    [Math.floor(left / 3600000) % 24, 'HOURS'],
-    [Math.floor(left / 60000) % 60, 'MINUTES'],
-    [Math.floor(left / 1000) % 60, 'SECONDS'],
+    { label: 'DAYS', value: Math.floor(remaining / 86400000) },
+    { label: 'HOURS', value: Math.floor(remaining / 3600000) % 24 },
+    { label: 'MINUTES', value: Math.floor(remaining / 60000) % 60 },
+    { label: 'SECONDS', value: Math.floor(remaining / 1000) % 60 },
   ]
-  if (!left) return <p className="launch-message">We’re live.</p>
-  return <div className="countdown" aria-label="Time until launch">
-    {units.map(([value, label]) => <div className="time" key={label}><strong>{label === 'DAYS' ? value : String(value).padStart(2, '0')}</strong><span>{label}</span></div>)}
-  </div>
+
+  return (
+    <div className="countdown" aria-label="Countdown to Shairo launch">
+      {units.map(({ label, value }) => (
+        <div className="countdown-unit" key={label}>
+          <span className="countdown-number">{label === 'DAYS' ? value : String(value).padStart(2, '0')}</span>
+          <span className="countdown-label">{label}</span>
+        </div>
+      ))}
+    </div>
+  )
 }
 
 export default function App() {
-  return <main className="page">
-    <header className="header"><a href="#home" aria-label="Shairo home"><ShairoLogo /></a><span className="header-note">AI, REIMAGINED.</span></header>
-    <section className="hero" id="home">
-      <div className="hero-orbit orbit-a" /><div className="hero-orbit orbit-b" /><div className="hero-orbit orbit-c" />
-      <div className="hero-content">
-        <div className="eyebrow"><span className="dot" /> A NEW WAY TO BUILD</div>
-        <h1>Think beyond.<br/><em>Build with AI.</em></h1>
-        <p className="intro">Your ideas, without limits.</p>
-        <div className="launch"><span className="launch-label">COMING SOON</span><span className="launch-date">23 JANUARY 2027</span></div>
+  return (
+    <main className="coming-soon">
+      <section className="brand-block" aria-label="Shairo AI coming soon">
+        <ShairoMark />
+        <h1>Shairo</h1>
+        <div className="tagline"><span /> <p>AI REIMAGINED</p> <span /></div>
         <Countdown />
-      </div>
-      <div className="hero-watermark"><ShairoLogo large /></div>
-      <div className="hero-bottom"><span>SHAIRO AI</span><span>THE FUTURE IS YOURS TO BUILD.</span></div>
-    </section>
-    <footer className="footer"><span>SHAIRO AI</span><span>© {new Date().getFullYear()}</span></footer>
-  </main>
+      </section>
+    </main>
+  )
 }
