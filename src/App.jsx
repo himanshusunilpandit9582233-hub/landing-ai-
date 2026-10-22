@@ -4,13 +4,7 @@ const launchDate = new Date('2027-01-23T00:00:00+05:30').getTime()
 const linkedinUrl = 'https://www.linkedin.com/in/himanshu-96a864414/'
 
 function ShairoMark() {
-  return (
-    <svg className="shairo-mark" viewBox="0 0 220 260" role="img" aria-label="Shairo logo symbol">
-      <path d="M196 8C201 6 205 10 205 16V67C205 94 190 116 166 129L104 163C91 170 78 169 64 162L45 153C19 141 15 116 28 94C36 81 49 70 67 59L196 8Z" fill="currentColor" />
-      <path d="M61 70C37 89 27 109 34 130C38 143 50 153 69 163L157 209C178 220 183 237 169 253C163 260 155 266 143 273C161 254 161 240 145 230C141 227 135 224 128 220L36 172C5 156 -4 130 6 102C13 83 30 67 61 70Z" fill="currentColor" transform="translate(20 -20)"/>
-      <path d="M110 188C95 179 80 181 65 190C43 203 32 222 32 246V257C32 263 37 266 43 262L130 212C146 203 148 192 132 183L110 188Z" fill="currentColor" transform="translate(0 -9)"/>
-    </svg>
-  )
+  return <img className="shairo-mark" src="/shairo-logo.svg" alt="Shairo" />
 }
 
 function Countdown() {
