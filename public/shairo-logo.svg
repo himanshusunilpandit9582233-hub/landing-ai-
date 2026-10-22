@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 760" role="img" aria-labelledby="title">
+<title id="title">Shairo logo</title>
+<rect width="720" height="760" fill="#fff"/>
+<g fill="#050505">
+<path d="M476 61c6-3 13 2 13 9v83c0 31-17 59-44 74l-81 46c-17 10-38 10-55 1l-42-22c-34-18-33-67 2-84z"/>
+<path d="M252 196c-32 18-52 52-52 90 0 34 19 65 49 82l198 109c21 12 23 41 4 56l-26 20c40-17 66-55 66-98 0-34-19-65-49-82L246 265c-20-11-23-38-5-54z"/>
+<path d="M280 457c-34 0-61 27-61 61v75c0 7 8 11 14 7l149-86c15-9 14-31-2-39l-57-29c-13-7-28-10-43-10z"/>
+</g>
+<text x="360" y="725" fill="#050505" font-family="Arial, Helvetica, sans-serif" font-size="145" font-weight="700" letter-spacing="-8" text-anchor="middle">Shairo</text>
+</svg>
