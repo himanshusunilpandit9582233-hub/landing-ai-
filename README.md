@@ -1,6 +1,6 @@
-# Shairo AI — Single-Page Website
+# Shairo — Coming Soon
 
-A minimal, responsive, black-and-white single-page landing website for Shairo AI. No additional pages, waitlist, login, database, or backend.
+A minimal, responsive, black landing page for Shairo with the brand mark and live launch countdown. No navigation, extra sections, forms, waitlist, or backend.
 
 ## Run locally
 ```bash
@@ -14,4 +14,4 @@ npm run build
 npm run preview
 ```
 
-The launch countdown target is January 23, 2027 at 00:00 IST in `src/App.jsx`.
+The countdown targets January 23, 2027 at 00:00 India Standard Time. Update `launchDate` in `src/App.jsx` to change the launch date.
